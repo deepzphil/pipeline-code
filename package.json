@@ -1,0 +1,22 @@
+{
+  "name": "pulumi-eks-codepipeline-multi",
+  "version": "0.1.0",
+  "description": "Pulumi TypeScript scaffold for EKS + CodePipeline CI/CD on AWS",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "preview": "pulumi preview",
+    "up": "pulumi up"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@pulumi/aws": "^6.0.0",
+    "@pulumi/eks": "^1.0.0",
+    "@pulumi/pulumi": "^4.0.0"
+  }
+}

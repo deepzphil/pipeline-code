@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPO
+  build:
+    commands:
+      - echo Build started on `date`
+      - docker build -t $ECR_REPO:$CODEBUILD_RESOLVED_SOURCE_VERSION .
+      - docker push $ECR_REPO:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - mkdir -p deploy
+      - sed -e "s|IMAGE_PLACEHOLDER|$ECR_REPO:$CODEBUILD_RESOLVED_SOURCE_VERSION|g" -i deploy/* || true
+artifacts:
+  files:
+    - deploy/**

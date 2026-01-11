@@ -1,0 +1,3 @@
+name: pulumi-eks-codepipeline-multi
+runtime: nodejs
+description: Pulumi program to demonstrate EKS + CodePipeline CI/CD scaffold
